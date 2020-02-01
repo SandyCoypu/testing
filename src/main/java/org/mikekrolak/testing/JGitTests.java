@@ -45,7 +45,7 @@ public class JGitTests {
 					BlameCommand b = new Git(repo).blame().setFilePath(file.getPath());
 					System.out.println(b);
 
-					final BlameResult result = Git.setRemote("https://github.com/SandyCoypu/testing.git").blame().setFilePath(file.getPath()).call();
+					final BlameResult result = new Git(repo).blame().setFilePath(file.getPath()).call();
 					final RawText rawText = result.getResultContents();
 					for (int i = 0; i < rawText.size(); i++) {
 						final PersonIdent sourceAuthor = result.getSourceAuthor(i);
