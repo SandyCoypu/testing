@@ -21,8 +21,10 @@ public class JGitTests {
 	}
 
 	public static Repository openRepository() throws IOException {
-		FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		return builder.readEnvironment().findGitDir().build();
+	//	FileRepositoryBuilder builder = new FileRepositoryBuilder();
+	//	return builder.readEnvironment().findGitDir().build();
+//		return Git.open(FileUtils.getFile(".git")).checkout().getRepository();
+		return new FileRepositoryBuilder().setGitDir(new File("C:\\Users\\ukrolmi\\eclipse-workspace\\testing\\.git")).build();
 	}
 
 	public static void test() {
@@ -39,6 +41,7 @@ public class JGitTests {
 			for (File file : files) {
 				if (!(file.isDirectory())) {
 					System.out.println("Blaming " + file);
+					
 					BlameCommand b = new Git(repo).blame().setFilePath(file.getPath());
 					System.out.println(b);
 
