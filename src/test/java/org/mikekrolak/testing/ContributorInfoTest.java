@@ -15,6 +15,8 @@ public class ContributorInfoTest {
 		assertThat(ci.getName(), is("tester"));
 	}
 
+	
+	
 	@Test
 	public void testAmountPaidEnoughWhenNothingPaid() {
 		assertFalse(ContributorInfo.isAmountPaidEnough(0, 1));
